@@ -39,8 +39,6 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    first_name = None
-    last_name = None
     username = None
     mobile_regex = RegexValidator(
         regex=r'09(\d{9})$', message="Enter a valid mobile number. This value may contain only numbers.")
