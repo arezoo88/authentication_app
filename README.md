@@ -12,27 +12,18 @@ In the login process, if the user enters the wrong username three times or the w
 
 - [Features](#features)
 - [Requirements](#requirements)
-- [Installation](#installation)
 - [Running the Project](#running-the-project)
-- [Running Tests](#running-tests)
-- [API Documentation](#api-documentation)
-- [TEST SCREEN](#test_screen)
 
 ## Features
 
-- Create, update, delete, and list tasks and projects
-- Add comments to tasks
-- Real-time notifications using Django Channels
-- Background tasks with Celery and RabbitMQ
-- Cache with redis
-- API documentation with Swagger
+- Background tasks with Celery and Redis
+- Cache with redis for preventing brute force
 
 ## Requirements
 
 - Docker
 - Docker Compose
 
-## Installation
 
 1. **Clone the repository:**
 
