@@ -1,11 +1,15 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from django.core.validators import RegexValidator
 
 User = get_user_model()
 
 
 class MobileNumberSerializer(serializers.Serializer):
-    mobile_number = serializers.CharField(max_length=11)
+    mobile_regex = RegexValidator(
+        regex=r'09(\d{9})$', message="Enter a valid mobile number. This value may contain only numbers.")
+    mobile_number = serializers.CharField(
+        max_length=11, validators=[mobile_regex])
 
 
 class VerifyCodeSerializer(serializers.Serializer):
