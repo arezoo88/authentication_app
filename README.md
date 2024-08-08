@@ -47,4 +47,4 @@ In the same way, in the registration process, if three SMS requests come from th
 
 ## Postman Collection
 
-![postman collection](https://github.com/arezoo88/authentication_app/blob/master/source/assets/authentication_app.postman_collection.json)
+<a href="[myFile.js](https://github.com/arezoo88/authentication_app/blob/master/source/assets/authentication_app.postman_collection.json)" download>Click to Download Postman Collection</a>
