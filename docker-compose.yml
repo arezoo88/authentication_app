@@ -1,0 +1,25 @@
+
+services:
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - "redis_data:/data"
+    networks:
+      - authentication_app
+    ports:
+      - "6379:6379"
+  celery:
+    build:
+      context: .
+      dockerfile: DockerFile
+    command: bash -c "cd source && celery -A base worker --loglevel=info"
+    volumes:
+      - .:/home/app
+    networks:
+      - authentication_app
+    depends_on:
+      - redis
+networks:
+  authentication_app:
+volumes:
+  redis_data:
