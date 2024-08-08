@@ -37,7 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third Parties
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # Local Apps
+    'apps.account'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,9 +82,18 @@ TEMPLATES = [
         },
     },
 ]
+AUTH_USER_MODEL = "account.User"
 
 WSGI_APPLICATION = 'base.wsgi.application'
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
+}
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
